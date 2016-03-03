@@ -8,6 +8,7 @@ namespace NewsEffectProj
 {
     public class Manager : Staff
     {
+        //public int managerid { get; set; }
         public string manages { get; set; }
     }
 }

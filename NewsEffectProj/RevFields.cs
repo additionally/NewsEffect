@@ -8,6 +8,6 @@ namespace NewsEffectProj
 {
     public class RevFields
     {
-        public string fields { get; set; }
+        public string field { get; set; }
     }
 }

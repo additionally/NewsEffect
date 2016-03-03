@@ -9,5 +9,7 @@ namespace NewsEffectProj
     public class Companies
     {
         public string name { get; set; }
+
     }
+
 }

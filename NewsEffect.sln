@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{05127E
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectDatabaseConn", "NewsEffectDatabaseConn\NewsEffectDatabaseConn.csproj", "{1C788005-B00F-4CD3-A914-A30AB711410E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectUI", "NewsEffectUI\NewsEffectUI.csproj", "{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{6EB1EF77-C3C2-4F0C-97A6-9E1EA09909E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EB1EF77-C3C2-4F0C-97A6-9E1EA09909E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EB1EF77-C3C2-4F0C-97A6-9E1EA09909E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C788005-B00F-4CD3-A914-A30AB711410E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C788005-B00F-4CD3-A914-A30AB711410E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C788005-B00F-4CD3-A914-A30AB711410E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C788005-B00F-4CD3-A914-A30AB711410E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

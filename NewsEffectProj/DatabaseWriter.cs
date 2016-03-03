@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace NewsEffectProj
 {
-    public class Departments : Locations
+    public class DatabaseWriter
     {
-        public string name { get; set; }
-        public int managerid { get; set; }
+        public virtual object insertCompany(Companies company)
+        {
+            return null;
+        }
     }
 }
