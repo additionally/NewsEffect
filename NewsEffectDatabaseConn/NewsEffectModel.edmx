@@ -4,269 +4,268 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CompanyTimesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="company">
+    <Schema Namespace="CompanyTimesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
           <Key>
             <PropertyRef Name="comp_id" />
           </Key>
-          <Property Name="comp_id" Type="int" Nullable="false" />
+          <Property Name="comp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="departments">
+        <EntityType Name="Department">
           <Key>
             <PropertyRef Name="dept_id" />
           </Key>
-          <Property Name="dept_id" Type="int" Nullable="false" />
+          <Property Name="dept_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="fk_company_comp_id" Type="int" />
-          <Property Name="fk_locations_location_id" Type="int" />
+          <Property Name="fk_location_location_id" Type="int" />
         </EntityType>
-        <EntityType Name="employees">
+        <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="employeeid" />
+            <PropertyRef Name="employee_id" />
           </Key>
-          <Property Name="employeeid" Type="int" Nullable="false" />
-          <Property Name="fk_departments_dept_id" Type="int" />
+          <Property Name="employee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_department_dept_id" Type="int" />
           <Property Name="firstname" Type="varchar" MaxLength="25" />
           <Property Name="lastname" Type="varchar" MaxLength="25" />
-          <Property Name="password" Type="varchar" MaxLength="10" />
-          <Property Name="managerid" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="30" />
+          <Property Name="manager_id" Type="int" />
         </EntityType>
-        <EntityType Name="locations">
+        <EntityType Name="Location">
           <Key>
             <PropertyRef Name="location_id" />
           </Key>
-          <Property Name="location_id" Type="int" Nullable="false" />
+          <Property Name="location_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__departmen__fk_co__08EA5793">
-          <End Role="company" Type="Self.company" Multiplicity="0..1" />
-          <End Role="departments" Type="Self.departments" Multiplicity="*" />
+        <Association Name="FK__Departmen__fk_co__3C69FB99">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="company">
+            <Principal Role="Company">
               <PropertyRef Name="comp_id" />
             </Principal>
-            <Dependent Role="departments">
+            <Dependent Role="Department">
               <PropertyRef Name="fk_company_comp_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__departmen__fk_lo__09DE7BCC">
-          <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
-          <End Role="departments" Type="Self.departments" Multiplicity="*" />
+        <Association Name="FK__Departmen__fk_lo__3D5E1FD2">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="locations">
+            <Principal Role="Location">
               <PropertyRef Name="location_id" />
             </Principal>
-            <Dependent Role="departments">
-              <PropertyRef Name="fk_locations_location_id" />
+            <Dependent Role="Department">
+              <PropertyRef Name="fk_location_location_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__employees__fk_de__0EA330E9">
-          <End Role="departments" Type="Self.departments" Multiplicity="0..1" />
-          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+        <Association Name="FK__Employee__fk_dep__4222D4EF">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="departments">
+            <Principal Role="Department">
               <PropertyRef Name="dept_id" />
             </Principal>
-            <Dependent Role="employees">
-              <PropertyRef Name="fk_departments_dept_id" />
+            <Dependent Role="Employee">
+              <PropertyRef Name="fk_department_dept_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="manager_fk">
-          <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
-          <End Role="employees1" Type="Self.employees" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="employees">
-              <PropertyRef Name="employeeid" />
+            <Principal Role="Employee">
+              <PropertyRef Name="employee_id" />
             </Principal>
-            <Dependent Role="employees1">
-              <PropertyRef Name="managerid" />
+            <Dependent Role="Employee1">
+              <PropertyRef Name="manager_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CompanyTimesModelStoreContainer">
-          <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="departments" EntityType="Self.departments" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__departmen__fk_co__08EA5793" Association="Self.FK__departmen__fk_co__08EA5793">
-            <End Role="company" EntitySet="company" />
-            <End Role="departments" EntitySet="departments" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Departmen__fk_co__3C69FB99" Association="Self.FK__Departmen__fk_co__3C69FB99">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Department" EntitySet="Department" />
           </AssociationSet>
-          <AssociationSet Name="FK__departmen__fk_lo__09DE7BCC" Association="Self.FK__departmen__fk_lo__09DE7BCC">
-            <End Role="locations" EntitySet="locations" />
-            <End Role="departments" EntitySet="departments" />
+          <AssociationSet Name="FK__Departmen__fk_lo__3D5E1FD2" Association="Self.FK__Departmen__fk_lo__3D5E1FD2">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Department" EntitySet="Department" />
           </AssociationSet>
-          <AssociationSet Name="FK__employees__fk_de__0EA330E9" Association="Self.FK__employees__fk_de__0EA330E9">
-            <End Role="departments" EntitySet="departments" />
-            <End Role="employees" EntitySet="employees" />
+          <AssociationSet Name="FK__Employee__fk_dep__4222D4EF" Association="Self.FK__Employee__fk_dep__4222D4EF">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="manager_fk" Association="Self.manager_fk">
-            <End Role="employees" EntitySet="employees" />
-            <End Role="employees1" EntitySet="employees" />
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CompanyTimesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="company">
+        <EntityContainer Name="CompanyTimesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="CompanyTimesModel.Company" />
+          <EntitySet Name="Departments" EntityType="CompanyTimesModel.Department" />
+          <EntitySet Name="Employees" EntityType="CompanyTimesModel.Employee" />
+          <EntitySet Name="Locations" EntityType="CompanyTimesModel.Location" />
+          <AssociationSet Name="FK__Departmen__fk_co__1DE57479" Association="CompanyTimesModel.FK__Departmen__fk_co__1DE57479">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departmen__fk_lo__1ED998B2" Association="CompanyTimesModel.FK__Departmen__fk_lo__1ED998B2">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__fk_dep__239E4DCF" Association="CompanyTimesModel.FK__Employee__fk_dep__239E4DCF">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="manager_fk" Association="CompanyTimesModel.manager_fk">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Employee1" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Company">
           <Key>
             <PropertyRef Name="comp_id" />
           </Key>
-          <Property Name="comp_id" Type="Int32" Nullable="false" />
+          <Property Name="comp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="departments" Relationship="Self.FK__departmen__fk_co__08EA5793" FromRole="company" ToRole="departments" />
+          <NavigationProperty Name="Departments" Relationship="CompanyTimesModel.FK__Departmen__fk_co__1DE57479" FromRole="Company" ToRole="Department" />
         </EntityType>
-        <EntityType Name="department">
+        <EntityType Name="Department">
           <Key>
             <PropertyRef Name="dept_id" />
           </Key>
-          <Property Name="dept_id" Type="Int32" Nullable="false" />
+          <Property Name="dept_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="fk_company_comp_id" Type="Int32" />
-          <Property Name="fk_locations_location_id" Type="Int32" />
-          <NavigationProperty Name="company" Relationship="Self.FK__departmen__fk_co__08EA5793" FromRole="departments" ToRole="company" />
-          <NavigationProperty Name="location" Relationship="Self.FK__departmen__fk_lo__09DE7BCC" FromRole="departments" ToRole="locations" />
-          <NavigationProperty Name="employees" Relationship="Self.FK__employees__fk_de__0EA330E9" FromRole="departments" ToRole="employees" />
+          <Property Name="fk_location_location_id" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="CompanyTimesModel.FK__Departmen__fk_co__1DE57479" FromRole="Department" ToRole="Company" />
+          <NavigationProperty Name="Location" Relationship="CompanyTimesModel.FK__Departmen__fk_lo__1ED998B2" FromRole="Department" ToRole="Location" />
+          <NavigationProperty Name="Employees" Relationship="CompanyTimesModel.FK__Employee__fk_dep__239E4DCF" FromRole="Department" ToRole="Employee" />
         </EntityType>
-        <EntityType Name="employee">
+        <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="employeeid" />
+            <PropertyRef Name="employee_id" />
           </Key>
-          <Property Name="employeeid" Type="Int32" Nullable="false" />
-          <Property Name="fk_departments_dept_id" Type="Int32" />
+          <Property Name="employee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_department_dept_id" Type="Int32" />
           <Property Name="firstname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="managerid" Type="Int32" />
-          <NavigationProperty Name="department" Relationship="Self.FK__employees__fk_de__0EA330E9" FromRole="employees" ToRole="departments" />
-          <NavigationProperty Name="employees1" Relationship="Self.manager_fk" FromRole="employees" ToRole="employees1" />
-          <NavigationProperty Name="employee1" Relationship="Self.manager_fk" FromRole="employees1" ToRole="employees" />
+          <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="manager_id" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="CompanyTimesModel.FK__Employee__fk_dep__239E4DCF" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Employee1" Relationship="CompanyTimesModel.manager_fk" FromRole="Employee" ToRole="Employee1" />
+          <NavigationProperty Name="Employee2" Relationship="CompanyTimesModel.manager_fk" FromRole="Employee1" ToRole="Employee" />
         </EntityType>
-        <EntityType Name="location">
+        <EntityType Name="Location">
           <Key>
             <PropertyRef Name="location_id" />
           </Key>
-          <Property Name="location_id" Type="Int32" Nullable="false" />
+          <Property Name="location_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="departments" Relationship="Self.FK__departmen__fk_lo__09DE7BCC" FromRole="locations" ToRole="departments" />
+          <NavigationProperty Name="Departments" Relationship="CompanyTimesModel.FK__Departmen__fk_lo__1ED998B2" FromRole="Location" ToRole="Department" />
         </EntityType>
-        <Association Name="FK__departmen__fk_co__08EA5793">
-          <End Role="company" Type="Self.company" Multiplicity="0..1" />
-          <End Role="departments" Type="Self.department" Multiplicity="*" />
+        <Association Name="FK__Departmen__fk_co__1DE57479">
+          <End Type="CompanyTimesModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="CompanyTimesModel.Department" Role="Department" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="company">
+            <Principal Role="Company">
               <PropertyRef Name="comp_id" />
             </Principal>
-            <Dependent Role="departments">
+            <Dependent Role="Department">
               <PropertyRef Name="fk_company_comp_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__departmen__fk_lo__09DE7BCC">
-          <End Role="locations" Type="Self.location" Multiplicity="0..1" />
-          <End Role="departments" Type="Self.department" Multiplicity="*" />
+        <Association Name="FK__Departmen__fk_lo__1ED998B2">
+          <End Type="CompanyTimesModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="CompanyTimesModel.Department" Role="Department" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="locations">
+            <Principal Role="Location">
               <PropertyRef Name="location_id" />
             </Principal>
-            <Dependent Role="departments">
-              <PropertyRef Name="fk_locations_location_id" />
+            <Dependent Role="Department">
+              <PropertyRef Name="fk_location_location_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__employees__fk_de__0EA330E9">
-          <End Role="departments" Type="Self.department" Multiplicity="0..1" />
-          <End Role="employees" Type="Self.employee" Multiplicity="*" />
+        <Association Name="FK__Employee__fk_dep__239E4DCF">
+          <End Type="CompanyTimesModel.Department" Role="Department" Multiplicity="0..1" />
+          <End Type="CompanyTimesModel.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="departments">
+            <Principal Role="Department">
               <PropertyRef Name="dept_id" />
             </Principal>
-            <Dependent Role="employees">
-              <PropertyRef Name="fk_departments_dept_id" />
+            <Dependent Role="Employee">
+              <PropertyRef Name="fk_department_dept_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="manager_fk">
-          <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
-          <End Role="employees1" Type="Self.employee" Multiplicity="*" />
+          <End Type="CompanyTimesModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="CompanyTimesModel.Employee" Role="Employee1" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="employees">
-              <PropertyRef Name="employeeid" />
+            <Principal Role="Employee">
+              <PropertyRef Name="employee_id" />
             </Principal>
-            <Dependent Role="employees1">
-              <PropertyRef Name="managerid" />
+            <Dependent Role="Employee1">
+              <PropertyRef Name="manager_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CompanyTimesEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="companies" EntityType="Self.company" />
-          <EntitySet Name="departments" EntityType="Self.department" />
-          <EntitySet Name="employees" EntityType="Self.employee" />
-          <EntitySet Name="locations" EntityType="Self.location" />
-          <AssociationSet Name="FK__departmen__fk_co__08EA5793" Association="Self.FK__departmen__fk_co__08EA5793">
-            <End Role="company" EntitySet="companies" />
-            <End Role="departments" EntitySet="departments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__departmen__fk_lo__09DE7BCC" Association="Self.FK__departmen__fk_lo__09DE7BCC">
-            <End Role="locations" EntitySet="locations" />
-            <End Role="departments" EntitySet="departments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__employees__fk_de__0EA330E9" Association="Self.FK__employees__fk_de__0EA330E9">
-            <End Role="departments" EntitySet="departments" />
-            <End Role="employees" EntitySet="employees" />
-          </AssociationSet>
-          <AssociationSet Name="manager_fk" Association="Self.manager_fk">
-            <End Role="employees" EntitySet="employees" />
-            <End Role="employees1" EntitySet="employees" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CompanyTimesModelStoreContainer" CdmEntityContainer="CompanyTimesEntities">
-          <EntitySetMapping Name="companies">
-            <EntityTypeMapping TypeName="CompanyTimesModel.company">
-              <MappingFragment StoreEntitySet="company">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="CompanyTimesModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="comp_id" ColumnName="comp_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="departments">
-            <EntityTypeMapping TypeName="CompanyTimesModel.department">
-              <MappingFragment StoreEntitySet="departments">
-                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="CompanyTimesModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="fk_location_location_id" ColumnName="fk_location_location_id" />
                 <ScalarProperty Name="fk_company_comp_id" ColumnName="fk_company_comp_id" />
-                <ScalarProperty Name="fk_locations_location_id" ColumnName="fk_locations_location_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="employees">
-            <EntityTypeMapping TypeName="CompanyTimesModel.employee">
-              <MappingFragment StoreEntitySet="employees">
-                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
-                <ScalarProperty Name="fk_departments_dept_id" ColumnName="fk_departments_dept_id" />
-                <ScalarProperty Name="firstname" ColumnName="firstname" />
-                <ScalarProperty Name="lastname" ColumnName="lastname" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="managerid" ColumnName="managerid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="locations">
-            <EntityTypeMapping TypeName="CompanyTimesModel.location">
-              <MappingFragment StoreEntitySet="locations">
-                <ScalarProperty Name="location_id" ColumnName="location_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CompanyTimesModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="manager_id" ColumnName="manager_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="fk_department_dept_id" ColumnName="fk_department_dept_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="CompanyTimesModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

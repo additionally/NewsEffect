@@ -12,16 +12,16 @@ namespace NewsEffectDatabaseConn
     using System;
     using System.Collections.Generic;
     
-    public partial class location
+    public partial class Location
     {
-        public location()
+        public Location()
         {
-            this.departments = new HashSet<department>();
+            this.Departments = new HashSet<Department>();
         }
     
         public int location_id { get; set; }
         public string name { get; set; }
     
-        public virtual ICollection<department> departments { get; set; }
+        public virtual ICollection<Department> Departments { get; set; }
     }
 }

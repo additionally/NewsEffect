@@ -25,9 +25,9 @@ namespace NewsEffectDatabaseConn
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<company> companies { get; set; }
-        public virtual DbSet<department> departments { get; set; }
-        public virtual DbSet<employee> employees { get; set; }
-        public virtual DbSet<location> locations { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
     }
 }

@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1cc6fecc5ace415e8b0da0fcc2571db4" Name="Diagram1">
-        <EntityTypeShape EntityType="CompanyTimesModel.company" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompanyTimesModel.department" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompanyTimesModel.employee" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompanyTimesModel.location" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="CompanyTimesModel.FK__departmen__fk_co__08EA5793" ManuallyRouted="false" />
-        <AssociationConnector Association="CompanyTimesModel.FK__departmen__fk_lo__09DE7BCC" ManuallyRouted="false" />
-        <AssociationConnector Association="CompanyTimesModel.FK__employees__fk_de__0EA330E9" ManuallyRouted="false" />
-        <AssociationConnector Association="CompanyTimesModel.manager_fk" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CompanyTimesModel.Company" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="CompanyTimesModel.Department" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="CompanyTimesModel.Employee" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="CompanyTimesModel.Location" Width="1.5" PointX="0.75" PointY="5.5" />
+        <AssociationConnector Association="CompanyTimesModel.FK__Departmen__fk_co__1DE57479" />
+        <AssociationConnector Association="CompanyTimesModel.FK__Departmen__fk_lo__1ED998B2" />
+        <AssociationConnector Association="CompanyTimesModel.FK__Employee__fk_dep__239E4DCF" />
+        <AssociationConnector Association="CompanyTimesModel.manager_fk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,20 +12,20 @@ namespace NewsEffectDatabaseConn
     using System;
     using System.Collections.Generic;
     
-    public partial class department
+    public partial class Department
     {
-        public department()
+        public Department()
         {
-            this.employees = new HashSet<employee>();
+            this.Employees = new HashSet<Employee>();
         }
     
         public int dept_id { get; set; }
         public string name { get; set; }
         public Nullable<int> fk_company_comp_id { get; set; }
-        public Nullable<int> fk_locations_location_id { get; set; }
+        public Nullable<int> fk_location_location_id { get; set; }
     
-        public virtual company company { get; set; }
-        public virtual location location { get; set; }
-        public virtual ICollection<employee> employees { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual Location Location { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace NewsEffectUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DeleteOrgAcc.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DeleteOrgAcc : Page
     {
-        public MainWindow()
+        public DeleteOrgAcc()
         {
             InitializeComponent();
         }

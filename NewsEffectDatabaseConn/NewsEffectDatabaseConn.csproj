@@ -49,16 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="company.cs">
+    <Compile Include="Company.cs">
       <DependentUpon>NewsEffectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="department.cs">
+    <Compile Include="DatabaseRepository.cs" />
+    <Compile Include="Department.cs">
       <DependentUpon>NewsEffectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="employee.cs">
+    <Compile Include="Employee.cs">
       <DependentUpon>NewsEffectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="location.cs">
+    <Compile Include="IDatabaseRepositroy.cs" />
+    <Compile Include="Location.cs">
       <DependentUpon>NewsEffectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NewsEffectModel.Context.cs">

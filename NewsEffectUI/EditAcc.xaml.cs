@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace NewsEffectUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EditAcc.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditAcc : Page
     {
-        public MainWindow()
+        public EditAcc()
         {
             InitializeComponent();
         }

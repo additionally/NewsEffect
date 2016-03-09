@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace NewsEffectProj
 {
-    public class DatabaseWriter
+    public class Registering
     {
-        public virtual object insertCompany(Companies company)
-        {
-            return null;
-        }
+
+
     }
 }
