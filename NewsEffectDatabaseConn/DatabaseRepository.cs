@@ -20,6 +20,7 @@ namespace NewsEffectDatabaseConn
         //string inmanempln;
         //string inmanfn;
         //string inmanln;
+        string inpassword;
         string pwd = "password";
 
         public List<string> readcomp()
@@ -120,6 +121,31 @@ namespace NewsEffectDatabaseConn
                  return empid;
              }
          }
+         public int getdepartmentid(string depname)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 var empdeptidquery = (from d in context.Departments
+                                       where d.name == depname
+                                       select d.dept_id);
+
+                 int empdept = Convert.ToInt32(empdeptidquery);
+                 return empdept;
+             }
+         }
+
+         public int getlocationid(string inlocname)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 var deptlocidquery = (from l in context.Locations
+                                       where l.name == inlocname
+                                       select l.location_id);
+
+                 int deptloc = Convert.ToInt32(deptlocidquery);
+                 return deptloc;
+             }
+         }
 
         public void registercomp(string incompname)
         {
@@ -144,13 +170,7 @@ namespace NewsEffectDatabaseConn
                     context.Locations.Add(loc);
                 }
 
-                //add another location and yes answer starts process all over
-
-                var deptlocidquery = (from l in context.Locations
-                                      where l.name == inlocname
-                                      select l.location_id);
-
-                int deptloc = Convert.ToInt32(deptlocidquery);
+                int deptloc = getlocationid(inlocname);
 
                 var deptcoidquery = (from c in context.Companies
                                      where c.name == indeptcompname
@@ -193,47 +213,127 @@ namespace NewsEffectDatabaseConn
             using (var context = new CompanyTimesEntities())
             {
             int selectedemp = getemployeeid(inmanempfn, inmanempln);
-            int selectedman = getemployeeid(inmanfn, inmanln);
             
                 var em = context.Employees.Find(selectedemp);
 
-            if (em.password == null)
+            if (em.password == null || em.password == inpassword)
             {
-
+                return true;
             }
-            else if ()
+            else
+            {
+                return false;
+            }
         }
             }
 
-    public bool passwordconfirmation(string pass1, string pass2)
-{
-    if (pass1 == pass2)
-{
-    return true;
-}
-    else
-    {
-        return false;
-    }
-}
-
-        public void generatepassword(string inmanempfn, string inmanempln)
+        public bool confirmpassword(string password1, string confirmedpassword)
+        {
+            if (password1 == confirmedpassword)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void generatepassword(string inmanempfn, string inmanempln, string password1, string confirmedpassword)
         {
             using (var context = new CompanyTimesEntities())
             {
-                var empmanquery = (from e in context.Employees
-                                   where e.firstname == inmanempfn && e.lastname == inmanempln
-                                   select e.employee_id);
-                int selectedemp = Convert.ToInt32(empmanquery);
-
+        
+            if (currentpassword(inmanempfn, inmanempln) == true && confirmpassword(password1, confirmedpassword) == true)
+            {
+               int selectedemp = getemployeeid(inmanempfn, inmanempln);
                 var em = context.Employees.Find(selectedemp);
-
-                if (em.password == null)
-                {
-                    ;
-                }
-                //em.password = pwd + selectedemp;
+                em.password = confirmedpassword;
+            }
+              
             }
         }
-    }
+        public void removedept(string indepname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var deptforremove = context.Departments.Where(d => d.name == indepname);
+                foreach (var deptrev in deptforremove)
+                {
+                    context.Departments.Remove(deptrev);
+                }
+            }
+        }
+
+        public void removeemp(string inmanempfn, string inmanempln)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var empforremove = context.Employees.Where(e => e.firstname == inmanempfn && e.lastname == inmanempln);
+                foreach (var emprev in empforremove)
+                {
+                    context.Employees.Remove(emprev);
+                }
+            }
+        }
+
+        public void changeconame(string incompname, string newcompname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var c = context.Companies.Find(incompname);
+                c.name = newcompname;
+                context.SaveChanges();
+            }
+        }
+
+        public void changedeptname(string indepname, string newdeptname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var d = context.Departments.Find(indepname);
+                d.name = newdeptname;
+                context.SaveChanges();
+            }
+        }
+
+        public void changedeptloc(string indepname, string inlocname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var d = context.Departments.Find(indepname);
+                if (checkloc(inlocname) == true)
+                {
+                    Location loc = new Location() { name = inlocname };
+                    context.Locations.Add(loc);
+                }
+
+                int deptloc = getlocationid(inlocname);
+                d.fk_location_location_id = deptloc;
+                context.SaveChanges();
+            }
+        }
+
+        public void changeempdept(string inmanempfn, string inmanempln, string depname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                int selectedemp = getemployeeid(inmanempfn, inmanempln);
+                var em = context.Employees.Find(selectedemp);
+                int empdept = getdepartmentid(depname);
+                em.fk_department_dept_id = empdept;
+            }
+        }
+
+        public void changeempnames(string inmanempfn, string inmanempln, string newempfname, string newemplname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                int selectedemp = getemployeeid(inmanempfn, inmanempln);
+                var em = context.Employees.Find(selectedemp);
+                em.firstname = newempfname;
+                em.lastname = newemplname;
+            }
+        }
+     
+     }
 }
