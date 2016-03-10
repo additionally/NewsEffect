@@ -21,7 +21,8 @@ namespace NewsEffectDatabaseConn
         //string inmanfn;
         //string inmanln;
         string inpassword;
-        string pwd = "password";
+        //string pwd = "password";
+        //List<string> companynames;
 
         public List<string> readcomp()
         {
@@ -158,6 +159,7 @@ namespace NewsEffectDatabaseConn
             }
             }
         }
+
 
         public void registerdept(string indepname, string inlocname, string indeptcompname)
         {

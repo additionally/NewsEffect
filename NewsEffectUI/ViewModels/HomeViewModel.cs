@@ -15,9 +15,9 @@ namespace NewsEffectUI.ViewModels
         {
             get 
             {
-                if (_buttonLogPageCommand == null)
+                if (_buttonGoHome == null)
                 {
-                    _buttonLogPageCommand = new Command(GoHome, CanGoHome);
+                    _buttonGoHome = new Command(GoHome, CanGoHome);
                 } 
                 return _buttonGoHome; 
             }

@@ -26,8 +26,8 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Background="DarkCyan"/>
         <TextBlock Text="Company Name" FontFamily="Segue UI" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="47,10,39,10" Grid.Row="2" Width="94" Grid.Column="1"/>
-        <TextBox Name="compnametextbox" Grid.Column="1" Margin="19,9,21,0" Grid.Row="3" Text="{Binding ,Mode=TwoWay}" />
-        <Button Content="Submit" Grid.Column="1" Margin="62,30,59,10" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
+        <TextBox Name="compnametextbox" Grid.Column="1" Margin="19,9,21,0" Grid.Row="3" Text="{Binding incompname,Mode=TwoWay}"/>
+        <Button Content="Submit" Command="{Binding buttonRegisterComp}" Grid.Column="1" Margin="62,30,59,10" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
         <Button Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>
-    </Grid>
+    </Grid> 
 </Page>

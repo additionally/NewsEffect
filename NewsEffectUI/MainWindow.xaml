@@ -7,5 +7,5 @@
     <Window.DataContext>
         <vm:WindowViewModel/>
     </Window.DataContext>
-    <Frame Source="{Binding page}"/>
+    <Frame Source="{Binding page}" NavigationUIVisibility="Hidden"/>
 </Window>

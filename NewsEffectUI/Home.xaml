@@ -28,9 +28,9 @@
         <Button Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>
         <!--<Label Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>-->
         <Label Content="The News for your company" Grid.Column="1" Margin="10,5,12,5" Grid.Row="1"/>
-        <Label Content="Sign up for an Effect account" Grid.Column="1" Margin="10,2,6,0" Grid.Row="2"/>
-        <Button Content="Sign Up" Command="{Binding buttonSignPageCommand}" Grid.Column="1" Margin="52,35,69,5" Grid.Row="2" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
-        <Label Content="Log in to start using Effect" Grid.Column="1" Margin="9,0,12,5" Grid.Row="4"/>
-        <Button Content="Log In" Command="{Binding buttonLogPageCommand}" Grid.Column="1" Margin="52,30,69,10" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
+        <Label Content="Sign up for an Effect account" Grid.Column="1" Margin="10,0,6,2" Grid.Row="2"/>
+        <Button Content="Sign Up" Command="{Binding buttonSignPageCommand}" Grid.Column="1" Margin="59,35,62,5" Grid.Row="2" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
+        <Label Content="Log in to start using Effect" Grid.Column="1" Margin="11,0,10,5" Grid.Row="4"/>
+        <Button Content="Log In" Command="{Binding buttonLogPageCommand}" Grid.Column="1" Margin="59,30,62,0" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81" Height="35" VerticalAlignment="Top"/>
     </Grid>
 </Page>
