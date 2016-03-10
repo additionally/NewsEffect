@@ -85,6 +85,18 @@ namespace NewsEffectDatabaseConn
             }
         }
 
+        public List<int> readempid()
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var readempidquery = (from e in context.Employees
+                                      select e.employee_id);
+
+                List<int> empids = readempidquery.ToList();
+                return empids;
+            }
+        }
+
         public bool checkcomp(string incompname)
         {
                 if (readcomp().Contains(incompname))
@@ -97,6 +109,20 @@ namespace NewsEffectDatabaseConn
                 {
                     return true;
                 }
+        }
+
+        public bool checkemp(int empid)
+        {
+            if (readempid().Contains(empid))
+            {
+                return false;
+                //basically go to login page
+                //else is start sign up again
+            }
+            else
+            {
+                return true;
+            }
         }
 
          public bool checkloc(string inlocname)
@@ -156,6 +182,7 @@ namespace NewsEffectDatabaseConn
             {
                 Company co = new Company() { name = incompname };
                 context.Companies.Add(co);
+                context.SaveChanges();
             }
             }
         }
@@ -181,6 +208,7 @@ namespace NewsEffectDatabaseConn
                 int deptco = Convert.ToInt32(deptcoidquery);
 
                 Department dept = new Department() { name = indepname, fk_company_comp_id = deptco, fk_location_location_id = deptloc };
+                context.SaveChanges();
             }
         }
 
@@ -195,6 +223,7 @@ namespace NewsEffectDatabaseConn
                 int empdept = Convert.ToInt32(empdeptidquery);
 
                 Employee emp = new Employee() { fk_department_dept_id = empdept, firstname = inemployeefn, lastname = inemployeeln };
+                context.SaveChanges();
             }
         }
 
@@ -207,6 +236,7 @@ namespace NewsEffectDatabaseConn
 
                 var em = context.Employees.Find(selectedemp);
                 em.manager_id = selectedman;
+                context.SaveChanges();
             }
         }
         
@@ -250,6 +280,7 @@ namespace NewsEffectDatabaseConn
                int selectedemp = getemployeeid(inmanempfn, inmanempln);
                 var em = context.Employees.Find(selectedemp);
                 em.password = confirmedpassword;
+                context.SaveChanges();
             }
               
             }
@@ -262,7 +293,9 @@ namespace NewsEffectDatabaseConn
                 foreach (var deptrev in deptforremove)
                 {
                     context.Departments.Remove(deptrev);
+                    context.SaveChanges();
                 }
+
             }
         }
 
@@ -274,6 +307,7 @@ namespace NewsEffectDatabaseConn
                 foreach (var emprev in empforremove)
                 {
                     context.Employees.Remove(emprev);
+                    context.SaveChanges();
                 }
             }
         }
@@ -323,6 +357,7 @@ namespace NewsEffectDatabaseConn
                 var em = context.Employees.Find(selectedemp);
                 int empdept = getdepartmentid(depname);
                 em.fk_department_dept_id = empdept;
+                context.SaveChanges();
             }
         }
 
@@ -334,8 +369,33 @@ namespace NewsEffectDatabaseConn
                 var em = context.Employees.Find(selectedemp);
                 em.firstname = newempfname;
                 em.lastname = newemplname;
+                context.SaveChanges();
             }
         }
-     
+
+        public bool login(int userid, string pass)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+            if (checkemp(userid) == false)
+            {
+                var em = context.Employees.Find(userid);
+                if (em.password == pass)
+                {
+                    return true;
+                    //go to login in page
+                }
+                else
+                {
+                    return false;
+                }
+                }
+            else
+            {
+                return false;
+            }
+            }
+            
+        }
      }
 }
