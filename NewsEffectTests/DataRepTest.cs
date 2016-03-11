@@ -11,10 +11,13 @@ namespace NewsEffectTests
     [TestClass]
     public class DataRepTest
     {
+
+        //36 methods
         [TestMethod]
-        public void TestMethod1()
+        public void TestReadcompMethodReturnsAList()
         {
             //Arrange
+
             //Act
             //Assert
         }

@@ -58,13 +58,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NewsEffectProj\NewsEffectProj.csproj">
-      <Project>{cb61ea30-0bd5-48f9-9a74-b0714f68dba5}</Project>
-      <Name>NewsEffectProj</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\NewsEffectDatabaseConn\NewsEffectDatabaseConn.csproj">
+      <Project>{1c788005-b00f-4cd3-a914-a30ab711410e}</Project>
+      <Name>NewsEffectDatabaseConn</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

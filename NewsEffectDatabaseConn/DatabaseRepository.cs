@@ -154,7 +154,7 @@ namespace NewsEffectDatabaseConn
                  var hasmanquery = (from e in context.Employees
                                     where e.employee_id == empid
                                     select e.manager_id);
-                 if (Convert.ToInt32(hasmanquery) == null)
+                 if (Convert.ToInt32(hasmanquery) == 0)
                  {
                      return false;
                  }
@@ -171,7 +171,7 @@ namespace NewsEffectDatabaseConn
                  var ismanquery = (from e in context.Employees
                                    where e.manager_id == empid
                                     select e.manager_id);
-                 if (Convert.ToInt32(ismanquery) == null)
+                 if (Convert.ToInt32(ismanquery) == 0)
                  {
                      return false;
                  }
