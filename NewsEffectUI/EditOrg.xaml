@@ -26,13 +26,16 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Background="DarkCyan"/>
         <TextBlock Text="Make Changes To" Margin="27,10,115,10" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <ComboBox Text="Select" Grid.Column="1" Margin="19,20,23,27" Grid.Row="2" Grid.RowSpan="2">
-            <ComboBoxItem Name="mke">Company</ComboBoxItem><!--MouseMove="OnHover"-->
+        <ComboBox Text="Select" Grid.Column="1" Margin="70,5,32,5" Grid.Row="1" Grid.ColumnSpan="2">
+            <ComboBoxItem Name="mke">Company</ComboBoxItem>
+            <!--MouseMove="OnHover"-->
             <ComboBoxItem Name="mkd">Department</ComboBoxItem>
             <ComboBoxItem Name="mkc3">Employee</ComboBoxItem>
         </ComboBox>
-        <TextBlock Text="Change" Margin="27,20,166,0" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <TextBlock Text="Add" Margin="32,9,0,10" Grid.Row="3"/>
+        <!--<ComboBox ItemsSource="{Binding fruits}">
+        </ComboBox>-->
+        <TextBlock Text="Edit" Margin="27,10,166,10" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Add" Margin="32,10,0,9" Grid.Row="3"/>
         <TextBlock Text="Remove" Grid.ColumnSpan="2" Margin="27,10,160,6" Grid.Row="4"/>
         <Button Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>
     </Grid>

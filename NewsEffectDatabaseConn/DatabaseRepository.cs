@@ -111,20 +111,6 @@ namespace NewsEffectDatabaseConn
                 }
         }
 
-        public bool checkemp(int empid)
-        {
-            if (readempid().Contains(empid))
-            {
-                return false;
-                //basically go to login page
-                //else is start sign up again
-            }
-            else
-            {
-                return true;
-            }
-        }
-
          public bool checkloc(string inlocname)
         {
                 if (readloc().Contains(inlocname))
@@ -137,6 +123,115 @@ namespace NewsEffectDatabaseConn
                 }
             }
 
+         public bool checkdept(string indeptname)
+         {
+             if (readdept().Contains(indeptname))
+             {
+                 return false;
+             }
+             else
+             {
+                 return true;
+             }
+         }
+
+         public bool checkemp(int empid)
+         {
+             if (readempid().Contains(empid))
+             {
+                 return false;
+             }
+             else
+             {
+                 return true;
+             }
+         }
+
+         public bool checkmanager(int empid)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 var hasmanquery = (from e in context.Employees
+                                    where e.employee_id == empid
+                                    select e.manager_id);
+                 if (Convert.ToInt32(hasmanquery) == null)
+                 {
+                     return false;
+                 }
+                 else
+                 {
+                     return true;
+                 }
+             }
+         }
+         public bool checkisamanager(int empid)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 var ismanquery = (from e in context.Employees
+                                   where e.manager_id == empid
+                                    select e.manager_id);
+                 if (Convert.ToInt32(ismanquery) == null)
+                 {
+                     return false;
+                 }
+                 else
+                 {
+                     return true;
+                 }
+             }
+         }
+
+         public int getemployeedept(int empid)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 var deptempquery = (from e in context.Employees
+                                   where e.employee_id == empid
+                                   select e.fk_department_dept_id);
+                 int employeedept = Convert.ToInt32(deptempquery);
+                 return employeedept;
+             }
+         }
+
+        public bool checkempinsamedept(int empid, int emp2id)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 if (getemployeedept(empid) == getemployeedept(emp2id))
+                 {
+                     return true;
+                 }
+                 else
+                 {
+                     return false;
+                 }
+             }
+         }
+        public int getdeptcompid(string indepname)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                var exstdepcoidquery = (from d in context.Departments
+                                        where d.name == indepname
+                                        select d.fk_company_comp_id);
+                int exstdeptco = Convert.ToInt32(exstdepcoidquery);
+                return exstdeptco;
+            }
+        }
+
+        public bool checkuniqdept(int coid, int othercoid)
+        {
+            if (coid == othercoid)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
          public int getemployeeid(string infname, string inlname)
          {
              using (var context = new CompanyTimesEntities())
@@ -146,6 +241,18 @@ namespace NewsEffectDatabaseConn
                                     select e.employee_id);
                  int empid = Convert.ToInt32(empmanquery);
                  return empid;
+             }
+         }
+
+         public int getmanagerid(int empid)
+         {
+             using (var context = new CompanyTimesEntities())
+             {
+                 var manidquery = (from e in context.Employees
+                                    where e.employee_id == empid
+                                    select e.manager_id);
+                 int manid = Convert.ToInt32(manidquery);
+                 return manid;
              }
          }
          public int getdepartmentid(string depname)
@@ -173,6 +280,25 @@ namespace NewsEffectDatabaseConn
                  return deptloc;
              }
          }
+                 public bool checkisdetpmanager(int empid)
+         {
+             if (checkisamanager(empid) == true)
+             {
+                 if (checkmanager(empid) == false)
+                 { }
+                 else if (checkmanager(empid) == true && checkempinsamedept(empid, getmanagerid(empid)) == false)
+                 { }
+                 else
+                 {
+                     return false;
+                 }
+                 return true;
+             }
+             else
+             {
+                 return false;
+             }
+         }
 
         public void registercomp(string incompname)
         {
@@ -186,7 +312,6 @@ namespace NewsEffectDatabaseConn
             }
             }
         }
-
 
         public void registerdept(string indepname, string inlocname, string indeptcompname)
         {
@@ -204,11 +329,16 @@ namespace NewsEffectDatabaseConn
                 var deptcoidquery = (from c in context.Companies
                                      where c.name == indeptcompname
                                      select c.comp_id);
-
                 int deptco = Convert.ToInt32(deptcoidquery);
 
-                Department dept = new Department() { name = indepname, fk_company_comp_id = deptco, fk_location_location_id = deptloc };
-                context.SaveChanges();
+                int exstdeptco = getdeptcompid(indepname);
+
+                if (checkdept(indepname) == true || (checkdept(indepname) == false && checkuniqdept(exstdeptco, deptco) == true))
+                {
+                    Department dept = new Department() { name = indepname, fk_company_comp_id = deptco, fk_location_location_id = deptloc };
+                    context.Departments.Add(dept);
+                    context.SaveChanges();
+                }
             }
         }
 
@@ -223,6 +353,7 @@ namespace NewsEffectDatabaseConn
                 int empdept = Convert.ToInt32(empdeptidquery);
 
                 Employee emp = new Employee() { fk_department_dept_id = empdept, firstname = inemployeefn, lastname = inemployeeln };
+                context.Employees.Add(emp);
                 context.SaveChanges();
             }
         }

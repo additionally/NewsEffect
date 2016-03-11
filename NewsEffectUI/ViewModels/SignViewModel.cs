@@ -14,7 +14,11 @@ namespace NewsEffectUI.ViewModels
         public string incompname
         {
             get { return _incompname; }
-            set { _incompname = incompname; }
+            set 
+            {
+                _incompname = value;
+            OnPropertyChanged("incompname");
+            }
         }
 
         private ICommand _buttonRegisterComp;
@@ -67,6 +71,8 @@ namespace NewsEffectUI.ViewModels
         {
             DatabaseRepository datarep = new DatabaseRepository();
             datarep.registercomp(incompname);
+            //WindowViewModel windowViewModel = App.Current.MainWindow.DataContext as WindowViewModel;
+            //windowViewModel.page = "SignDept.xaml";
         }
         
 
