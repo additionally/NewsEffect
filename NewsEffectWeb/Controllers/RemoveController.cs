@@ -20,7 +20,7 @@ namespace NewsEffectWeb.Controllers
             return Confirmation();
         }
 
-        private ActionResult Confirmation()
+        public ActionResult Confirmation()
         {
             return View();
         }
