@@ -7,8 +7,21 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="UserHome">
 
-    <Grid>
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
-        <Label Content="Your Headlines"></Label>
+        <Label Content="Your Headlines" Grid.Column="1" Grid.Row="1"/>
     </Grid>
 </Page>

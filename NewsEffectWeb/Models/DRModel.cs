@@ -16,9 +16,9 @@ namespace NewsEffectWeb.Models
         public void removalco(int guserid, string gpassword)
         {
             DatabaseRepository datarepo = new DatabaseRepository();
-            if (datarepo.login(userid, password) == true)
+            if (datarepo.login(guserid, gpassword) == true)
             {
-                datarepo.removecompany(userid);
+                datarepo.removecompany(guserid);
             }
         }
     }

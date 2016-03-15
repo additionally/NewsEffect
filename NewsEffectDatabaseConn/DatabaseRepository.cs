@@ -21,6 +21,10 @@ namespace NewsEffectDatabaseConn
         //string inmanfn;
         //string inmanln;
         string inpassword;
+        int empid;
+        int employeedept;
+        int deptcomid;
+        int exstdeptco;
         //string pwd = "password";
         //List<string> companynames;
 
@@ -154,7 +158,8 @@ namespace NewsEffectDatabaseConn
                  var hasmanquery = (from e in context.Employees
                                     where e.employee_id == empid
                                     select e.manager_id);
-                 if (Convert.ToInt32(hasmanquery) == 0)
+                 
+                 if (hasmanquery.SingleOrDefault() == null)
                  {
                      return false;
                  }
@@ -171,7 +176,7 @@ namespace NewsEffectDatabaseConn
                  var ismanquery = (from e in context.Employees
                                    where e.manager_id == empid
                                     select e.manager_id);
-                 if (Convert.ToInt32(ismanquery) == 0)
+                 if (ismanquery == null)
                  {
                      return false;
                  }
@@ -184,12 +189,18 @@ namespace NewsEffectDatabaseConn
 
          public int getemployeedept(int empid)
          {
+
              using (var context = new CompanyTimesEntities())
              {
+                 
                  var deptempquery = (from e in context.Employees
                                    where e.employee_id == empid
                                    select e.fk_department_dept_id);
-                 int employeedept = Convert.ToInt32(deptempquery);
+                 foreach (var depid in deptempquery)
+                 {
+                     employeedept = Convert.ToInt32(depid);
+                 }
+
                  return employeedept;
              }
          }
@@ -215,7 +226,10 @@ namespace NewsEffectDatabaseConn
                 var exstdepcoidquery = (from d in context.Departments
                                         where d.name == indepname
                                         select d.fk_company_comp_id);
-                int exstdeptco = Convert.ToInt32(exstdepcoidquery);
+                foreach (var id in exstdepcoidquery)
+                {
+                    exstdeptco = Convert.ToInt32(id);
+                }
                 return exstdeptco;
             }
         }
@@ -233,14 +247,21 @@ namespace NewsEffectDatabaseConn
         }
 
          public int getemployeeid(string infname, string inlname)
-         {
+        {
+
              using (var context = new CompanyTimesEntities())
              {
+                 
                  var empmanquery = (from e in context.Employees
                                     where e.firstname == infname && e.lastname == inlname
                                     select e.employee_id);
-                 int empid = Convert.ToInt32(empmanquery);
+
+                 foreach (var id in empmanquery)
+                 {
+                  empid = Convert.ToInt32(id);
+                 }
                  return empid;
+
              }
          }
 
@@ -430,7 +451,11 @@ namespace NewsEffectDatabaseConn
                                                 where d.dept_id == deptid
                                                 select d.fk_company_comp_id);
 
-                        int deptcomid = Convert.ToInt32(getdeptcoidquery);
+                        foreach (var id in getdeptcoidquery)
+                        {
+                            deptcomid = Convert.ToInt32(id);    
+                        }
+
                         var allcodeptsquery = (from d in context.Departments
                                                where d.fk_company_comp_id == deptcomid
                                                select d.dept_id);

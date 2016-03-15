@@ -13,10 +13,16 @@ namespace NewsEffectWeb.Controllers
         public static DRModel mymodel = new DRModel();
 
         [HttpPost]
-        public void ButtonData(int userid, string password)
+        public ActionResult ButtonData(int userid, string password)
         {
            // return PartialView(mymodel.removalco(mymodel.userid, mymodel.password)
             mymodel.removalco(userid, password);
+            return Confirmation();
+        }
+
+        private ActionResult Confirmation()
+        {
+            return View();
         }
 
         // GET: Remove
