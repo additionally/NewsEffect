@@ -60,12 +60,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DeleteOrgAcc.xaml.cs">
-      <DependentUpon>DeleteOrgAcc.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditAcc.xaml.cs">
-      <DependentUpon>EditAcc.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EditOrg.xaml.cs">
       <DependentUpon>EditOrg.xaml</DependentUpon>
     </Compile>
@@ -85,14 +79,6 @@
     <Compile Include="ViewModels\LogViewModel.cs" />
     <Compile Include="ViewModels\SignViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
-    <Page Include="DeleteOrgAcc.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditAcc.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="EditOrg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

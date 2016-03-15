@@ -30,6 +30,6 @@
         <TextBlock Text="Password" FontFamily="Segue UI" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="54,5,59,18" Grid.Row="3" Width="67" Grid.Column="1" Height="14"/>
         <TextBox Name="pwdtextbox" Grid.Column="1" Margin="25,24,25,23" Grid.Row="3" Grid.RowSpan="2"/>
         <Button Name="LogInButton" Content="Log In" Grid.Column="1" Margin="59,30,62,10" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
-        <Button Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

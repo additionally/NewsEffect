@@ -3,6 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="myStyle" TargetType="Button">
+            <Setter Property="Background" Value="DarkCyan"/>
+            <Setter Property="Foreground" Value="Gainsboro"/>
+            <Setter Property="FontSize" Value="72"/>
+            <Setter Property="FontFamily" Value="Niagara Engraved"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Content" Value="Effect"/>
+            <Setter Property="Template">
+                 <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle Name="rect"/>
+                            <TextBlock Text="Effect" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid> 
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter TargetName="rect" Property="Opacity" Value="0.9"/>
+                                <Setter Property="Background" Value="DarkCyan"/>
+                            </Trigger>
+                            <Trigger Property = "IsMouseOver" Value = "True">
+                                <Setter Property="Background" Value="DarkCyan"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers> 
+                    </ControlTemplate>
+                </Setter.Value> 
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

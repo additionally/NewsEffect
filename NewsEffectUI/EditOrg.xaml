@@ -32,12 +32,24 @@
             <ComboBoxItem Name="mkd">Department</ComboBoxItem>
             <ComboBoxItem Name="mkc3">Employee</ComboBoxItem>
         </ComboBox>
-        <ComboBox ItemsSource="{Binding localelist}" Grid.Column="1" Margin="73,0,0,10" Grid.Row="2"/>
+        <ComboBox ItemsSource="{Binding Path=locales}" Grid.Column="1" Margin="73,0,0,10" Grid.Row="2">
+        </ComboBox>
         <TextBlock Text="{Binding SignViewModel.incompname}" Margin="10,10,123,10" Grid.Row="2" Grid.Column="1"/>
         <TextBox Name="upco" Text="{Binding updatedcname, Mode=TwoWay}" Grid.Column="1" Margin="96,5,23,10" Grid.Row="2" Grid.RowSpan="1" Grid.ColumnSpan="2" Visibility="Collapsed"/>
         <RadioButton GroupName="Ch-ch-changes" Command="" Margin="10,0,159,20" Grid.Row="2" Grid.ColumnSpan="2">Update</RadioButton>
         <RadioButton GroupName="Ch-ch-changes" Command="" Margin="10,25,2,32" Grid.Row="2" Grid.RowSpan="2">Add</RadioButton>
         <RadioButton GroupName="Ch-ch-changes" Command="" Margin="10,10,161,10" Grid.Row="3" Grid.ColumnSpan="2">Remove</RadioButton>
-        <Button Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <RadioButton GroupName="UpdateGroup" Command="">Company Name</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="">Department Name</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="">Department Location</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="">Employee Name</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="">Employee Department</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="">Employee Password</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="">Employee Manager</RadioButton>
+        <RadioButton GroupName="RemoveGroup" Command="">Department</RadioButton>
+        <RadioButton GroupName="RemoveGroup" Command="">Employee</RadioButton>
+        <RadioButton GroupName="AddGroup" Command="">Department</RadioButton>
+        <RadioButton GroupName="AddGroup" Command="">Employee</RadioButton>
+        <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

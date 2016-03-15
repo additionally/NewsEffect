@@ -8,7 +8,7 @@
 	Title="UserHome">
 
     <Grid>
-        <Button Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" FontSize="72" Foreground="Gainsboro" Background="DarkCyan" RenderTransformOrigin="0.682,0.52" FontFamily="Niagara Engraved" FontWeight="Bold" HorizontalAlignment="Center"/>
-
+        <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
+        <Label Content="Your Headlines"></Label>
     </Grid>
 </Page>

@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectDatabaseConn", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectUI", "NewsEffectUI\NewsEffectUI.csproj", "{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectWeb", "NewsEffectWeb\NewsEffectWeb.csproj", "{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF5B0956-E9F7-422E-B2AD-3FF3323418EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

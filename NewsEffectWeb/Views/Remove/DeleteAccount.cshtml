@@ -1,0 +1,40 @@
+﻿@model NewsEffectWeb.Models.DRModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Delete Account";
+}
+
+<h1>Delete Account</h1>
+<h2>Enter log in details to delete Account.</h2>
+<h3>Remember this cannot be cancelled and new account will have to be created to use the service</h3>
+
+@using (Html.BeginForm("ButtonData", "Remove", FormMethod.Post))
+{
+    <p>User ID</p>
+    @Html.EditorFor(model => model.userid)
+    <p>Password</p>
+    @Html.EditorFor(model => model.password)
+    <input type="submit" value="Submit" />
+}
+
+@*<p>
+        <button>
+            @Html.ActionLink("Delete Account", "ButtonData", "Remove")
+        </button>
+    </p>*@
+<!-- This is a comment
+
+          using (Ajax.BeginForm(new AjaxOptions
+      {
+          HttpMethod = "GET",
+          UpdateTargetId = "userid",
+          InsertionMode = InsertionMode.Replace
+      }))
+
+
+          <div id="div1">
+              <input id="userid" type="number"/>
+              <input id="userid" type="text"/>
+          </div>
+-->
+<h4>Only a senior manager with correct login credentials can delete a company account.</h4>

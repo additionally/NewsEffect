@@ -10,26 +10,27 @@ namespace NewsEffectUI.ViewModels
 {
     public class EditOrgViewModel : BaseViewModel
     {
+        DatabaseRepository datarep = new DatabaseRepository();
+
         private List<string> _locales;
 
         public List<string> locales
         {
-            get { return _locales; }
+            get { return _locales = datarep.readloc(); }
             set 
 {
-                _locales = value;
+    _locales = value;
             OnPropertyChanged("locales");
             }
         }
         
-        public List<string> locationlist()
-        {
-            DatabaseRepository datarep = new DatabaseRepository();
-                List<string> localelist = datarep.readloc();
-            return localelist;
-            }
-        List<string> lnames = new List<string>();
-        lnames = locationslist();
+        //public List<string> locationlist()
+        //{
+            
+        //        List<string> localelist = datarep.readloc();
+        //    return localelist;
+        //    }
+        //List<string> lnames = localelist;
         
 
         private string _currentcompname;

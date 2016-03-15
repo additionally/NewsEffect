@@ -416,6 +416,54 @@ namespace NewsEffectDatabaseConn
               
             }
         }
+
+        public void removecompany(int empid)
+        {
+            using (var context = new CompanyTimesEntities())
+            {
+                
+
+                    if (checkmanager(empid) == false)
+                    {
+                        int deptid = getemployeedept(empid);
+                        var getdeptcoidquery = (from d in context.Departments
+                                                where d.dept_id == deptid
+                                                select d.fk_company_comp_id);
+
+                        int deptcomid = Convert.ToInt32(getdeptcoidquery);
+                        var allcodeptsquery = (from d in context.Departments
+                                               where d.fk_company_comp_id == deptcomid
+                                               select d.dept_id);
+
+                        List<int> alldepcos = allcodeptsquery.ToList();
+
+                        foreach (var dco in alldepcos)
+                        {
+                            var emprem = context.Employees.Where(e => e.fk_department_dept_id == dco);
+                            foreach (var emp in emprem)
+                            {
+                                context.Employees.Remove(emp);
+                                context.SaveChanges();
+                            }
+                        }
+
+                        var deptcorem = context.Departments.Where(d => d.fk_company_comp_id == deptcomid);
+                        foreach (var de in deptcorem)
+                        {
+                            context.Departments.Remove(de);
+                            context.SaveChanges();
+                        }
+
+                        var corem = context.Companies.Where(c => c.comp_id == deptcomid);
+                        foreach (var co in corem)
+                        {
+                            context.Companies.Remove(co);
+                            context.SaveChanges();
+                        }
+                    }
+        }
+    }
+
         public void removedept(string indepname)
         {
             using (var context = new CompanyTimesEntities())
