@@ -20,6 +20,12 @@ namespace NewsEffectDatabaseConn
         //string inmanempln;
         //string inmanfn;
         //string inmanln;
+        int empdept;
+        int empdep;
+        int deptco;
+        int deptloc;
+        int empdept;
+        int manid;
         string inpassword;
         int empid;
         int employeedept;
@@ -272,7 +278,12 @@ namespace NewsEffectDatabaseConn
                  var manidquery = (from e in context.Employees
                                     where e.employee_id == empid
                                     select e.manager_id);
-                 int manid = Convert.ToInt32(manidquery);
+
+                 foreach (var man in manidquery)
+                 {
+                     manid = Convert.ToInt32(man);
+                 }
+                 
                  return manid;
              }
          }
@@ -284,8 +295,11 @@ namespace NewsEffectDatabaseConn
                                        where d.name == depname
                                        select d.dept_id);
 
-                 int empdept = Convert.ToInt32(empdeptidquery);
-                 return empdept;
+                 foreach (var d in empdeptidquery)
+                 {
+                     empdep = Convert.ToInt32(d);
+                 }
+                 return empdep;
              }
          }
 
@@ -297,7 +311,10 @@ namespace NewsEffectDatabaseConn
                                        where l.name == inlocname
                                        select l.location_id);
 
-                 int deptloc = Convert.ToInt32(deptlocidquery);
+                 foreach (var lid in deptlocidquery)
+                 {
+                     deptloc = Convert.ToInt32(lid);
+                 }
                  return deptloc;
              }
          }
@@ -350,8 +367,11 @@ namespace NewsEffectDatabaseConn
                 var deptcoidquery = (from c in context.Companies
                                      where c.name == indeptcompname
                                      select c.comp_id);
-                int deptco = Convert.ToInt32(deptcoidquery);
 
+                foreach (var coid in deptcoidquery)
+                {
+                    deptco = Convert.ToInt32(coid);
+                }
                 int exstdeptco = getdeptcompid(indepname);
 
                 if (checkdept(indepname) == true || (checkdept(indepname) == false && checkuniqdept(exstdeptco, deptco) == true))
@@ -367,13 +387,8 @@ namespace NewsEffectDatabaseConn
         {
             using (var context = new CompanyTimesEntities())
             {
-                var empdeptidquery = (from d in context.Departments
-                                      where d.name == inempdeptname
-                                      select d.dept_id);
-
-                int empdept = Convert.ToInt32(empdeptidquery);
-
-                Employee emp = new Employee() { fk_department_dept_id = empdept, firstname = inemployeefn, lastname = inemployeeln };
+                
+                Employee emp = new Employee() { fk_department_dept_id = getdepartmentid(inempdeptname), firstname = inemployeefn, lastname = inemployeeln };
                 context.Employees.Add(emp);
                 context.SaveChanges();
             }
