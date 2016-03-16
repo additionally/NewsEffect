@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:vm="clr-namespace:NewsEffectUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="550" d:DesignWidth="725"
 	Title="EditOrg">
     <Page.DataContext>
         <vm:EditOrgViewModel/>
@@ -25,27 +25,25 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Background="DarkCyan"/>
-        <TextBlock Text="Make Changes To" Margin="10,5,132,15" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <ComboBox Text="Select" Grid.Column="1" Margin="70,5,32,19" Grid.Row="1" Grid.ColumnSpan="2">
+        <TextBlock Text="Make Changes To:" Margin="10,5,132,15" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <ComboBox Text="Select" Grid.Column="1" Margin="70,5,117,39" Grid.Row="1">
             <ComboBoxItem Name="mke">Company</ComboBoxItem>
-            <!--MouseMove="OnHover"-->
             <ComboBoxItem Name="mkd">Department</ComboBoxItem>
             <ComboBoxItem Name="mkc3">Employee</ComboBoxItem>
         </ComboBox>
-        <ComboBox ItemsSource="{Binding Path=locales}" Grid.Column="1" Margin="123,0,10,19" Grid.Row="5" Grid.ColumnSpan="2">
-        </ComboBox>
-        <TextBlock Text="{Binding SignViewModel.incompname}" Margin="10,10,123,10" Grid.Row="2" Grid.Column="1"/>
+        <ComboBox ItemsSource="{Binding Path=locales}" Grid.Column="1" Margin="123,0,117,39" Grid.Row="5"/>
+        <TextBlock Text="{Binding SignViewModel.incompname}" Margin="10,29,253,10" Grid.Row="2" Grid.Column="1"/>
         <TextBox Name="upco" Text="{Binding updatedcname, Mode=TwoWay}" Grid.Column="1" Margin="96,5,23,10" Grid.Row="2" Grid.RowSpan="1" Grid.ColumnSpan="2" Visibility="Collapsed"/>
-        <RadioButton GroupName="Ch-ch-changes" Command="" Margin="27,25,142,33" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">Update</RadioButton>
-        <RadioButton GroupName="Ch-ch-changes" Command="" Margin="70,25,62,33" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">Add</RadioButton>
-        <RadioButton GroupName="Ch-ch-changes" Command="" Margin="148,26,23,33" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2">Remove</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,5,132,14" Grid.Row="2" Grid.ColumnSpan="2">Company Name</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,33,117,23" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2">Department Name</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,19,107,34" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2">Department Location</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Margin="105,10,23,11" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1">Employee Name</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Grid.ColumnSpan="2" Margin="105,25,-5,33" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1">Employee Department</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Margin="105,4,2,18" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1">Employee Password</RadioButton>
-        <RadioButton GroupName="UpdateGroup" Command="" Margin="105,20,12,0" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1">Employee Manager</RadioButton>
+        <RadioButton GroupName="Ch-ch-changes" Command="" Margin="10,0,329,49" Grid.Row="2" Grid.Column="1">Update</RadioButton>
+        <RadioButton GroupName="Ch-ch-changes" Command="" Margin="148,0,209,45" Grid.Row="2" Grid.Column="1">Add</RadioButton>
+        <RadioButton GroupName="Ch-ch-changes" Command="" Margin="303,1,38,44" Grid.Row="2" Grid.Column="1">Remove</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Style="{StaticResource compcoll}" Margin="0,5,132,14" Grid.Row="2" Grid.ColumnSpan="2">Company Name</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,25,0,10" Grid.Row="2">Department Name</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,7,0,31" Grid.Row="3">Department Location</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,25,0,14" Grid.Row="2">Employee Name</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,7,0,44" Grid.Row="3">Employee Department</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,30,0,10" Grid.Row="3">Employee Password</RadioButton>
+        <RadioButton GroupName="UpdateGroup" Command="" Margin="0,14,0,29" Grid.Row="4">Employee Manager</RadioButton>
         <RadioButton GroupName="RemoveGroup" Command="">Department</RadioButton>
         <RadioButton GroupName="RemoveGroup" Command="">Employee</RadioButton>
         <RadioButton GroupName="AddGroup" Command="">Department</RadioButton>

@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="550" d:DesignWidth="725"
 	Title="UserHome">
 
     <Grid Background="AliceBlue">
@@ -21,7 +21,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Background="DarkCyan"/>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
-        <Label Content="Your Headlines" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Your Headlines" Grid.Column="1" Grid.Row="1" Margin="151,10,164,30"/>
+        <TextBlock Text="The headlines" Grid.Column="1" Margin="126,0,164,0" Grid.Row="2" Grid.RowSpan="3"></TextBlock>
+        <TextBlock Text="Send News" Grid.Column="1" Margin="126,56,164,-56" Grid.Row="3" Grid.RowSpan="3"/>
     </Grid>
 </Page>

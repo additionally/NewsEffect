@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                   xmlns:vm="clr-namespace:NewsEffectUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="550" d:DesignWidth="725"
 	Title="Log">
     <Page.DataContext>
         <vm:LogViewModel/>
@@ -28,8 +28,8 @@
         <TextBlock Text="User ID" FontFamily="Segue UI" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="62,14,62,10" Grid.Row="1" Width="56" Grid.Column="1" Height="14"/>
         <TextBox Name="useridtextbox" Grid.Column="1" Margin="25,10,25,0" Grid.Row="2"/>
         <TextBlock Text="Password" FontFamily="Segue UI" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="54,5,59,18" Grid.Row="3" Width="67" Grid.Column="1" Height="14"/>
-        <TextBox Name="pwdtextbox" Grid.Column="1" Margin="25,24,25,23" Grid.Row="3" Grid.RowSpan="2"/>
-        <Button Name="LogInButton" Content="Log In" Grid.Column="1" Margin="59,30,62,10" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
+        <TextBox Name="pwdtextbox" Grid.Column="1" Margin="25,54,25,23" Grid.Row="3" Grid.RowSpan="2"/>
+        <Button Name="LogInButton" Content="Log In" Command="{Binding buttonLogIn}" Grid.Column="1" Margin="59,0,62,10" Grid.Row="5" RenderTransformOrigin="0.604,-0.81"/>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

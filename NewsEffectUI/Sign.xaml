@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:vm="clr-namespace:NewsEffectUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="550" d:DesignWidth="725"
 	Title="Sign">
     <Page.DataContext>
         <vm:SignViewModel/>
@@ -27,7 +27,7 @@
         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Background="DarkCyan"/>
         <TextBlock Text="Company Name" FontFamily="Segue UI" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="47,10,39,10" Grid.Row="2" Width="94" Grid.Column="1"/>
         <TextBox Name="compnametextbox" Grid.Column="1" Margin="19,9,21,0" Grid.Row="3" Text="{Binding incompname, Mode=TwoWay}"/>
-        <Button Content="Submit" Command="{Binding buttonRegisterComp}" Grid.Column="1" Margin="62,30,59,10" Grid.Row="4" Grid.RowSpan="2" RenderTransformOrigin="0.604,-0.81"/>
+        <Button Content="Submit" Command="{Binding buttonRegisterComp}" Grid.Column="1" Margin="60,33,61,45" Grid.Row="4" RenderTransformOrigin="0.604,-0.81" Grid.RowSpan="2"/>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
-    </Grid> 
+    </Grid>
 </Page>

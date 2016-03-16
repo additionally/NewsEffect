@@ -31,5 +31,13 @@
                 </Setter.Value> 
             </Setter>
         </Style>
+        <Style x:Key="compcoll" TargetType="RadioButton">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=mke, Path=IsSelected}" Value="True">
+                    <Setter Property="Visibility"  Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

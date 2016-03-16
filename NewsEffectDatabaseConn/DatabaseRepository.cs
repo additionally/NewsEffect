@@ -24,7 +24,6 @@ namespace NewsEffectDatabaseConn
         int empdep;
         int deptco;
         int deptloc;
-        int empdept;
         int manid;
         string inpassword;
         int empid;
