@@ -20,41 +20,91 @@ namespace NewsEffectUI
     /// </summary>
     public partial class EditOrg : Page
     {
+        List<RadioButton> rbuplist;
+        List<RadioButton> rbadlist;
+        List<RadioButton> rbremlist;
+        
         public EditOrg()
         {
             InitializeComponent();
+            rbuplist.Add(UCN);
+            rbuplist.Add(UDL);
+            rbuplist.Add(UED);
+            rbuplist.Add(UDN);
+            rbuplist.Add(UEM);
+            rbuplist.Add(UEN);
+            rbuplist.Add(UEP);
+            rbadlist.Add(AD);
+            rbadlist.Add(AE);
+            rbremlist.Add(RD);
+            rbremlist.Add(RE);
         }
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        private void U_Checked(object sender, RoutedEventArgs e)
         {
-           if (UCN.Visibility == System.Windows.Visibility.Hidden)
-           {
-               UCN.Visibility = System.Windows.Visibility.Visible;
-           }
-
-            //string visstatus = UCN.Visibility.ToString();
-            //if (visstatus == "Hidden")
-            //{
-            //    UCN.Visibility = System.Windows.Visibility.Visible;
-            //}
-
-        //    //List<RadioButton> rblist = new List<RadioButton>();
-        //    //RadioButton rb = 
-        //    //if (rb.GroupName == "UpdateGroup")
-        //    //{
-        //    //    rblist.Add(rb);
-        //    //}
-
+            foreach (var rb in rbuplist)
+            {
+                if (rb.Visibility == System.Windows.Visibility.Hidden)
+                {
+                    rb.Visibility = System.Windows.Visibility.Visible;
+                }
+            } 
         }
 
         private void U_Unchecked(object sender, RoutedEventArgs e)
         {
-            if (UCN.Visibility == System.Windows.Visibility.Visible)
+            foreach (var rb in rbuplist)
             {
-                UCN.Visibility = System.Windows.Visibility.Hidden;
+                if (rb.Visibility == System.Windows.Visibility.Visible)
+                {
+                    rb.Visibility = System.Windows.Visibility.Hidden;
+                }
             }
         }
 
+        private void A_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (var rb in rbuplist)
+            {
+                if (rb.Visibility == System.Windows.Visibility.Hidden)
+                {
+                    rb.Visibility = System.Windows.Visibility.Visible;
+                }
+            }
+        }
+
+        private void A_Unchecked(object sender, RoutedEventArgs e)
+        {
+            foreach (var rb in rbuplist)
+            {
+                if (rb.Visibility == System.Windows.Visibility.Visible)
+                {
+                    rb.Visibility = System.Windows.Visibility.Hidden;
+                }
+            }
+        }
+
+        private void R_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (var rb in rbuplist)
+            {
+                if (rb.Visibility == System.Windows.Visibility.Hidden)
+                {
+                    rb.Visibility = System.Windows.Visibility.Visible;
+                }
+            }
+        }
+
+        private void R_Unchecked(object sender, RoutedEventArgs e)
+        {
+            foreach (var rb in rbuplist)
+            {
+                if (rb.Visibility == System.Windows.Visibility.Visible)
+                {
+                    rb.Visibility = System.Windows.Visibility.Hidden;
+                }
+            }
+        }
     }
 }
 

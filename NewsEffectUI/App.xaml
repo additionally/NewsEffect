@@ -34,6 +34,22 @@
         <Style x:Key="compcoll" TargetType="RadioButton">
             <Setter Property="Visibility" Value="Collapsed" />
             <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=mkc, Path=IsSelected}" Value="True">
+                    <Setter Property="Visibility"  Value="Hidden"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="deptcoll" TargetType="RadioButton">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=mkd, Path=IsSelected}" Value="True">
+                    <Setter Property="Visibility"  Value="Hidden"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="empcoll" TargetType="RadioButton">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=mke, Path=IsSelected}" Value="True">
                     <Setter Property="Visibility"  Value="Hidden"/>
                 </DataTrigger>
