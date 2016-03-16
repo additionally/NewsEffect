@@ -103,7 +103,7 @@ namespace NewsEffectUI.ViewModels
             }
             catch (Exception eregfail)
             {
-                string err = "Unable to register. Please make sure you have correctly input a unique comany name.";
+                //string err = "Unable to register. Please make sure you have correctly input a unique comany name.";
                 GoHome();
                 throw eregfail;
                 

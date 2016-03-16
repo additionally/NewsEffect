@@ -24,7 +24,9 @@
         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Background="DarkCyan"/>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
         <Label Content="Your Headlines" Grid.Column="1" Grid.Row="1" Margin="151,10,164,30"/>
-        <TextBlock Text="The headlines" Grid.Column="1" Margin="126,0,164,0" Grid.Row="2" Grid.RowSpan="3"></TextBlock>
-        <TextBlock Text="Send News" Grid.Column="1" Margin="126,56,164,-56" Grid.Row="3" Grid.RowSpan="3"/>
+        <TextBlock Text="The headlines" Grid.Column="1" Margin="126,0,217,43" Grid.Row="2"/>
+        <TextBlock Text="Send News" Grid.Column="1" Margin="10,34,195,0" Grid.Row="4"/>
+        <Label Content="Optional" Grid.Column="2" Margin="24,10,-42,8" Grid.Row="2"/>
+        <TextBox Grid.Column="1" Margin="10,0,152,11" Grid.Row="5"/>
     </Grid>
 </Page>

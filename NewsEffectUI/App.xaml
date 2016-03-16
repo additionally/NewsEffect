@@ -6,7 +6,7 @@
         <Style x:Key="myStyle" TargetType="Button">
             <Setter Property="Background" Value="DarkCyan"/>
             <Setter Property="Foreground" Value="Gainsboro"/>
-            <Setter Property="FontSize" Value="72"/>
+            <Setter Property="FontSize" Value="84"/>
             <Setter Property="FontFamily" Value="Niagara Engraved"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Content" Value="Effect"/>
@@ -19,7 +19,7 @@
                         </Grid> 
 
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed"  Value="True">
+                            <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="rect" Property="Opacity" Value="0.9"/>
                                 <Setter Property="Background" Value="DarkCyan"/>
                             </Trigger>
@@ -35,7 +35,7 @@
             <Setter Property="Visibility" Value="Collapsed" />
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=mke, Path=IsSelected}" Value="True">
-                    <Setter Property="Visibility"  Value="Visible"/>
+                    <Setter Property="Visibility"  Value="Hidden"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>

@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <TextBox Grid.Row="0" Grid.ColumnSpan="10" Background="DarkCyan"/>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
-        <Label Content="The News for your company" Grid.Column="1" Margin="135,28,134,10" Grid.Row="1"/>
+        <Label Content="The News for your company" Grid.Column="1" Margin="135,28,134,0" Grid.Row="1"/>
         <Label Content="Sign up for an Effect account" Grid.Column="1" Margin="129,39,134,0" Grid.Row="2"/>
         <Button Content="Sign Up" Command="{Binding buttonSignPageCommand}" Grid.Column="1" Margin="59,10,62,3" Grid.Row="3" RenderTransformOrigin="0.604,-0.81"/>
         <Label Content="Log in to start using Effect" Grid.Column="1" Margin="135,28,141,10" Grid.Row="4"/>

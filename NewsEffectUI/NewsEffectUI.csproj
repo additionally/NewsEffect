@@ -78,6 +78,7 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LogViewModel.cs" />
     <Compile Include="ViewModels\SignViewModel.cs" />
+    <Compile Include="ViewModels\VisibilityConverter.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Page Include="EditOrg.xaml">
       <SubType>Designer</SubType>

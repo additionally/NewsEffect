@@ -25,5 +25,36 @@ namespace NewsEffectUI
             InitializeComponent();
         }
 
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+           if (UCN.Visibility == System.Windows.Visibility.Hidden)
+           {
+               UCN.Visibility = System.Windows.Visibility.Visible;
+           }
+
+            //string visstatus = UCN.Visibility.ToString();
+            //if (visstatus == "Hidden")
+            //{
+            //    UCN.Visibility = System.Windows.Visibility.Visible;
+            //}
+
+        //    //List<RadioButton> rblist = new List<RadioButton>();
+        //    //RadioButton rb = 
+        //    //if (rb.GroupName == "UpdateGroup")
+        //    //{
+        //    //    rblist.Add(rb);
+        //    //}
+
+        }
+
+        private void U_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (UCN.Visibility == System.Windows.Visibility.Visible)
+            {
+                UCN.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
     }
 }
+
