@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -147,6 +148,10 @@
     <ProjectReference Include="..\NewsEffectDatabaseConn\NewsEffectDatabaseConn.csproj">
       <Project>{1c788005-b00f-4cd3-a914-a30ab711410e}</Project>
       <Name>NewsEffectDatabaseConn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewsEffectService\NewsEffectService.csproj">
+      <Project>{d7486fbf-1a0b-4cb4-b159-c927b7613cb7}</Project>
+      <Name>NewsEffectService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

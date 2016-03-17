@@ -85,30 +85,30 @@ namespace NewsEffectUI.ViewModels
             }
         }
 
-        //private ICommand _buttonUpdateRB;
+        private ICommand _buttonUpdateRB;
 
-        //public ICommand buttonUpdateRB
-        //{
-        //    get
-        //    {
-        //        if (_buttonUpdateRB == null)
-        //        {
-        //            _buttonUpdateRB = new Command(UpdateRB, CanUpdateRB);
-        //        }
-        //        return _buttonUpdateRB;
-        //    }
-        //    set { _buttonUpdateRB = value; }
-        //}
+        public ICommand buttonUpdateRB
+        {
+            get
+            {
+                if (_buttonUpdateRB == null)
+                {
+                    _buttonUpdateRB = new Command(UpdateRB, CanUpdateRB);
+                }
+                return _buttonUpdateRB;
+            }
+            set { _buttonUpdateRB = value; }
+        }
 
-        //private bool CanUpdateRB()
-        //{
-        //    return true;
-        //}
+        private bool CanUpdateRB()
+        {
+            return true;
+        }
 
-        //private void UpdateRB()
-        //{
+        private void UpdateRB()
+        {
 
-        //}
+        }
 
         private ICommand _buttonGoHome;
 
@@ -149,8 +149,3 @@ namespace NewsEffectUI.ViewModels
         }
     }
     }
-
-//if (Visibility = Hidden)
-//{
-//Visibility = Visible;
-//}

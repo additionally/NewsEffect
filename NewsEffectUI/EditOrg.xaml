@@ -35,22 +35,23 @@
             <ComboBoxItem Name="mke">Employee</ComboBoxItem>
         </ComboBox>
         <ComboBox ItemsSource="{Binding Path=locales}" Grid.Column="1" Margin="123,0,117,39" Grid.Row="5"/>
-        <TextBlock Text="{Binding SignViewModel.incompname}" Margin="10,29,253,10" Grid.Row="2" Grid.Column="1"/>
-        <TextBox Name="upco" Text="{Binding updatedcname, Mode=TwoWay}" Grid.Column="1" Margin="96,5,23,10" Grid.Row="2" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+        <TextBlock Name="upco" Text="{Binding ElementName=compnametextbox}" Style="{StaticResource cnameblock}" Margin="70,39,38,43" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"/>
+        <TextBox Name="inupco" Text="{Binding updatedcname, Mode=TwoWay}" Style="{StaticResource cnamebox}" Grid.Column="1" Margin="5,31,113,52" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button Name="UCNB" Content="Submit" Command="{Binding buttonRegisterComp}" Style="{StaticResource cnamebutton}" Margin="148,40,153,39" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"/>
         <RadioButton GroupName="Ch-ch-changes" Name="U" Checked="U_Checked" Unchecked="U_Unchecked" Margin="10,0,329,49" Grid.Row="2" Grid.Column="1">Update</RadioButton>
-        <RadioButton GroupName="Ch-ch-changes" Margin="148,0,209,45" Grid.Row="2" Grid.Column="1">Add</RadioButton>
-        <RadioButton GroupName="Ch-ch-changes" Margin="303,1,38,44" Grid.Row="2" Grid.Column="1">Remove</RadioButton>
+        <RadioButton GroupName="Ch-ch-changes" Name="A" Checked="A_Checked" Unchecked="A_Unchecked" Margin="148,0,209,45" Grid.Row="2" Grid.Column="1">Add</RadioButton>
+        <RadioButton GroupName="Ch-ch-changes" Name="R" Checked="R_Checked" Unchecked="R_Unchecked" Margin="303,1,38,44" Grid.Row="2" Grid.Column="1">Remove</RadioButton>
         <RadioButton Name="UCN" GroupName="UpdateGroup" Style="{StaticResource compcoll}" Margin="0,5,132,14" Grid.Row="2" Grid.ColumnSpan="2">Company Name</RadioButton>
-        <RadioButton Name="UDN" GroupName="UpdateGroup" Margin="0,35,0,0" Grid.Row="2">Department Name</RadioButton>
-        <RadioButton Name="UDL" GroupName="UpdateGroup" Margin="0,15,0,23" Grid.Row="3">Department Location</RadioButton>
-        <RadioButton Name="UEN" GroupName="UpdateGroup" Margin="0,39,0,0" Grid.Row="2">Employee Name</RadioButton>
-        <RadioButton Name="UED" GroupName="UpdateGroup" Margin="0,10,0,41" Grid.Row="3">Employee Department</RadioButton>
-        <RadioButton Name="UEP" GroupName="UpdateGroup" Margin="0,56,0,52" Grid.Row="3" Grid.RowSpan="2">Employee Password</RadioButton>
-        <RadioButton Name="UEM" GroupName="UpdateGroup" Margin="0,33,0,10" Grid.Row="4">Employee Manager</RadioButton>
-        <RadioButton Name="RD" GroupName="RemoveGroup" Margin="0,35,23,14" Grid.Row="2">Department</RadioButton>
-        <RadioButton Name="RE" GroupName="RemoveGroup" Margin="-14,10,65,41" Grid.Row="3">Employee</RadioButton>
-        <RadioButton Name="AD" GroupName="AddGroup" Margin="1,35,23,3" Grid.Row="2">Department</RadioButton>
-        <RadioButton Name="AE" GroupName="AddGroup" Margin="10,10,44,30" Grid.Row="3">Employee</RadioButton>
+        <RadioButton Name="UDN" GroupName="UpdateGroup" Style="{StaticResource deptcoll}" Margin="0,35,0,0" Grid.Row="2">Department Name</RadioButton>
+        <RadioButton Name="UDL" GroupName="UpdateGroup" Style="{StaticResource deptcoll}" Margin="0,15,0,23" Grid.Row="3">Department Location</RadioButton>
+        <RadioButton Name="UEN" GroupName="UpdateGroup" Style="{StaticResource empcoll}" Margin="0,39,0,0" Grid.Row="2">Employee Name</RadioButton>
+        <RadioButton Name="UED" GroupName="UpdateGroup" Style="{StaticResource empcoll}" Margin="0,10,0,41" Grid.Row="3">Employee Department</RadioButton>
+        <RadioButton Name="UEP" GroupName="UpdateGroup" Style="{StaticResource empcoll}" Margin="0,56,0,52" Grid.Row="3" Grid.RowSpan="2">Employee Password</RadioButton>
+        <RadioButton Name="UEM" GroupName="UpdateGroup" Style="{StaticResource empcoll}" Margin="0,33,0,10" Grid.Row="4">Employee Manager</RadioButton>
+        <RadioButton Name="RD" GroupName="RemoveGroup" Style="{StaticResource deptcoll}" Margin="0,35,23,14" Grid.Row="2">Department</RadioButton>
+        <RadioButton Name="RE" GroupName="RemoveGroup" Style="{StaticResource empcoll}" Margin="-14,10,65,41" Grid.Row="3">Employee</RadioButton>
+        <RadioButton Name="AD" GroupName="AddGroup" Style="{StaticResource deptcoll}" Margin="1,35,23,3" Grid.Row="2">Department</RadioButton>
+        <RadioButton Name="AE" GroupName="AddGroup" Style="{StaticResource empcoll}" Margin="10,10,44,30" Grid.Row="3">Employee</RadioButton>
         <Button Style="{StaticResource myStyle}" Grid.Row="0" Grid.Column="1" Content="Effect&#xD;&#xA;" Command="{Binding buttonGoHome}" RenderTransformOrigin="0.682,0.52" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

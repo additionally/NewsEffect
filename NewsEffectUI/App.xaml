@@ -55,5 +55,29 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="cnameblock" TargetType="TextBlock">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=UCN, Path=IsChecked}" Value="True">
+                    <Setter Property="Visibility"  Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="cnamebox" TargetType="TextBox">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=UCN, Path=IsChecked}" Value="True">
+                    <Setter Property="Visibility"  Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="cnamebutton" TargetType="Button">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=UCN, Path=IsChecked}" Value="True">
+                    <Setter Property="Visibility"  Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

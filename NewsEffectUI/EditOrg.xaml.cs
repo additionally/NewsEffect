@@ -20,13 +20,16 @@ namespace NewsEffectUI
     /// </summary>
     public partial class EditOrg : Page
     {
-        List<RadioButton> rbuplist;
-        List<RadioButton> rbadlist;
-        List<RadioButton> rbremlist;
+        List<RadioButton> rbuplist = new List<RadioButton>();
+        List<RadioButton> rbadlist = new List<RadioButton>();
+        List<RadioButton> rbremlist = new List<RadioButton>();
         
         public EditOrg()
         {
             InitializeComponent();
+            rbuplist = null;
+            rbadlist = null;
+            rbremlist = null;
             rbuplist.Add(UCN);
             rbuplist.Add(UDL);
             rbuplist.Add(UED);

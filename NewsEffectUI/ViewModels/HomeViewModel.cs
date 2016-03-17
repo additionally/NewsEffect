@@ -1,6 +1,8 @@
-﻿using System;
+﻿using NewsEffectService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -9,6 +11,14 @@ namespace NewsEffectUI.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
+        EndpointAddress endpoint = new EndpointAddress("http://TRNLON11566:8081/");
+
+        public HomeViewModel()
+        {
+            IWelcomeService proxy = ChannelFactory<IWelcomeService>.CreateChannel(new BasicHttpBinding(), endpoint);
+            string wilk = proxy.GetWelcome();
+        }
+
         private ICommand _buttonGoHome;
 
         public ICommand buttonGoHome

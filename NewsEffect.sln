@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectUI", "NewsEffectU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectWeb", "NewsEffectWeb\NewsEffectWeb.csproj", "{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectService", "NewsEffectService\NewsEffectService.csproj", "{D7486FBF-1A0B-4CB4-B159-C927B7613CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsEffectServiceConsole", "NewsEffectServiceConsole\NewsEffectServiceConsole.csproj", "{CB1C5F26-DA9C-43BA-B46C-A007866A0D21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,14 @@ Global
 		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE1847CF-626A-4EB2-95F7-1D30205A0AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7486FBF-1A0B-4CB4-B159-C927B7613CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7486FBF-1A0B-4CB4-B159-C927B7613CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7486FBF-1A0B-4CB4-B159-C927B7613CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7486FBF-1A0B-4CB4-B159-C927B7613CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1C5F26-DA9C-43BA-B46C-A007866A0D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1C5F26-DA9C-43BA-B46C-A007866A0D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1C5F26-DA9C-43BA-B46C-A007866A0D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1C5F26-DA9C-43BA-B46C-A007866A0D21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
